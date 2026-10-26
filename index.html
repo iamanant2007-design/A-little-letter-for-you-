@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffe8ec">
+<title>A Little Letter for You 💌</title>
+<style>
+  :root { --pink:#e87988; --deep:#8d4054; --cream:#fff9f4; --rose:#ffdce3; --ink:#6d3947; }
+  * { box-sizing:border-box; }
+  body {
+    margin:0; min-height:100vh; padding:24px 16px;
+    display:grid; place-items:center; overflow-x:hidden;
+    color:var(--ink); font-family: ui-rounded, "Trebuchet MS", system-ui, sans-serif;
+    background: radial-gradient(circle at 15% 15%, #fffaf7 0, transparent 32%),
+                radial-gradient(circle at 85% 80%, #ffdce4 0, transparent 35%),
+                linear-gradient(135deg,#ffe9ed,#fff3ed 55%,#ffe0e7);
+  }
+  .sparkle { position:fixed; color:#e9a0ad; opacity:.75; pointer-events:none; animation: float 5s ease-in-out infinite; }
+  .s1{top:8%;left:8%;font-size:25px}.s2{top:18%;right:10%;font-size:19px;animation-delay:1s}
+  .s3{bottom:12%;left:12%;font-size:22px;animation-delay:2s}.s4{bottom:20%;right:8%;font-size:27px;animation-delay:.5s}
+  @keyframes float { 0%,100%{transform:translateY(0) rotate(-5deg)} 50%{transform:translateY(-12px) rotate(8deg)} }
+  .card {
+    width:min(100%,440px); padding:clamp(24px,6vw,38px) clamp(18px,5vw,32px);
+    text-align:center; border:1px solid rgba(255,255,255,.85); border-radius:30px;
+    background:rgba(255,250,246,.82); box-shadow:0 22px 65px rgba(151,72,91,.16);
+    backdrop-filter: blur(10px); position:relative;
+  }
+  .tiny { color:var(--pink); letter-spacing:7px; font-size:19px; margin-bottom:14px; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-weight:normal; color:var(--deep); font-size:clamp(2rem,8vw,2.65rem); line-height:1.13; margin:0 0 12px; }
+  .subtitle { margin:0 auto 25px; color:#a35f6e; font-size:1rem; line-height:1.6; }
+  .envelope-wrap { margin:18px auto 24px; width:190px; height:135px; display:grid; place-items:center; position:relative; }
+  .envelope { width:170px;height:112px;position:relative;border-radius:9px;background:#f5cfc6;box-shadow:0 12px 25px #dca4a555; }
+  .envelope:before { content:"";position:absolute;inset:0;background:#ffe5d9;clip-path:polygon(0 0,50% 57%,100% 0);border-radius:9px 9px 0 0; }
+  .envelope:after { content:"";position:absolute;inset:0;background:#f8d9cf;clip-path:polygon(0 100%,50% 43%,100% 100%);border-radius:0 0 9px 9px; }
+  .seal { z-index:2; position:absolute;left:50%;top:50%;transform:translate(-50%,-30%);font-size:30px;filter:drop-shadow(0 3px 2px #b46b7a44); }
+  button {
+    border:0; cursor:pointer; border-radius:999px; padding:15px 24px; width:min(100%,285px);
+    color:white; font-size:1rem; font-weight:700; letter-spacing:.2px;
+    background:linear-gradient(135deg,#ec8b98,#d9667b); box-shadow:0 9px 18px #dc7c8c45;
+    transition:transform .18s, box-shadow .18s;
+  }
+  button:hover { transform:translateY(-2px);box-shadow:0 12px 23px #dc7c8c55; }
+  button:focus-visible { outline:3px solid #9c4e61;outline-offset:4px; }
+  .hint { font-size:.83rem;color:#b17a83;margin:13px 0 0; }
+  .letter { text-align:left; margin-top:22px; padding:22px 19px; border-radius:18px; background:#fff; border:1px solid #f5dbe0; line-height:1.8; animation:appear .5s ease both; }
+  .letter h2 { text-align:center;font:normal 1.55rem Georgia,serif;color:var(--deep);margin:0 0 14px; }
+  .letter p { margin:0 0 13px; }
+  .sign { text-align:right;color:var(--deep);font-family:Georgia,serif;font-style:italic;margin-top:18px!important; }
+  .hidden { display:none; }
+  .footer { margin:24px 0 0;font-size:.82rem;color:#b17a83;line-height:1.6; }
+  .heart { display:inline-block; animation:beat 1.3s infinite; }
+  @keyframes beat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.18)} }
+  @keyframes appear { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+  @media (prefers-reduced-motion:reduce) { *,*:before,*:after { animation:none!important;transition:none!important; } }
+</style>
+</head>
+<body>
+  <span class="sparkle s1">♡</span><span class="sparkle s2">✧</span>
+  <span class="sparkle s3">♡</span><span class="sparkle s4">✦</span>
+  <main class="card">
+    <div class="tiny">— ♡ —</div>
+    <h1>A little letter<br>for you 💌</h1>
+    <p class="subtitle">A tiny corner of the internet, made just to make you smile.</p>
+    <div class="envelope-wrap" aria-hidden="true"><div class="envelope"><span class="seal">♥</span></div></div>
+    <button id="openLetter" type="button" aria-expanded="false" aria-controls="letter">Open your letter ♡</button>
+    <p class="hint">Psst… this little letter is only for you.</p>
+    <section id="letter" class="letter hidden" aria-live="polite">
+      <h2>Dear meri favourite person, ♡</h2>
+      <p>Bas aapko ek chhoti si baat yaad dilani thi… aap mere liye bahut special ho.</p>
+      <p>Aapke saath normal si baatein bhi special lagti hain. Kabhi aapki smile, kabhi aapki chhoti-chhoti baatein, aur kabhi bas aapka paas hona — ye sab mere din ko better bana dete hain.</p>
+      <p>Main har baar perfect words nahi bol pata, aur kabhi-kabhi galtiyan bhi kar deta hoon. Par main chahta hoon ki aapko mere saath apni feelings kehne ki jagah mile, aapki baat suni jaaye, aur aapko ye feel ho ki aap matter karti ho.</p>
+      <p>Aapko har din big promises nahi, balki chhoti-chhoti genuine efforts aur care milni chahiye. Main bhi isi tarah aapke liye better karna chahta hoon — one day at a time.</p>
+      <p>So, jab bhi aapka din thoda heavy ho ya bas smile karne ka mann kare, yaad rakhna: duniya mein ek insaan hai jo aapki khushi ke liye dil se wish karta hai. ♡</p>
+      <p class="sign">With lots of love,<br><strong>Aapka person <span class="heart">♥</span></strong></p>
+    </section>
+    <p class="footer">Made with a little code & a lot of care <span class="heart">♡</span></p>
+  </main>
+<script>
+  const button = document.getElementById('openLetter');
+  const letter = document.getElementById('letter');
+  button.addEventListener('click', () => {
+    const opening = letter.classList.contains('hidden');
+    letter.classList.toggle('hidden');
+    button.textContent = opening ? 'Close your letter ♡' : 'Open your letter ♡';
+    button.setAttribute('aria-expanded', String(opening));
+    if (opening) letter.scrollIntoView({behavior:'smooth', block:'nearest'});
+  });
+</script>
+</body>
+</html>
